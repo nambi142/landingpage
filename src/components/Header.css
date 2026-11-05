@@ -1,7 +1,8 @@
+
 .site-header {
   width: 100%;
   position: relative;
-  z-index: 10;
+  z-index: 100;
   background: #081426;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -16,6 +17,8 @@
   justify-content: space-between;
   gap: 30px;
 }
+
+/* BRAND */
 
 .brand {
   display: flex;
@@ -48,6 +51,8 @@
   letter-spacing: 0.4px;
 }
 
+/* NAVIGATION */
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -65,9 +70,12 @@
   color: #39a2ff;
 }
 
+/* REGISTER BUTTON */
+
 .header-cta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 9px;
   padding: 13px 19px;
   border-radius: 5px;
@@ -75,6 +83,7 @@
   color: #fff;
   font-size: 13px;
   font-weight: 700;
+  white-space: nowrap;
   transition: background 0.25s ease, transform 0.25s ease;
 }
 
@@ -83,54 +92,85 @@
   transform: translateY(-2px);
 }
 
+/* HAMBURGER */
+
 .menu-toggle {
   display: none;
   border: 0;
   background: transparent;
   color: #fff;
-  font-size: 25px;
+  font-size: 27px;
   cursor: pointer;
+  padding: 6px;
+  margin-left: auto;
 }
+
+/* TABLET & MOBILE */
 
 @media (max-width: 900px) {
   .header-container {
     min-height: 72px;
-    padding: 0 22px;
+    padding: 0 24px;
+    gap: 15px;
   }
 
   .menu-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-left: auto;
+    flex-shrink: 0;
   }
 
   .nav-links {
     display: none;
     position: absolute;
-    top: 72px;
+    top: 100%;
     left: 0;
     width: 100%;
-    padding: 24px;
+    padding: 26px 24px 28px;
     background: #0c1b30;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     flex-direction: column;
-    align-items: flex-start;
-    gap: 22px;
+    align-items: stretch;
+    gap: 0;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
   }
 
   .nav-links.nav-open {
     display: flex;
   }
 
-  .header-cta {
-    padding: 11px 13px;
-    font-size: 11px;
+  .nav-links a {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 14px;
+  }
+
+  /* REGISTER BUTTON INSIDE DROPDOWN */
+
+  .nav-links .header-cta {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px 18px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
   }
 }
 
+/* SMALL MOBILE */
+
 @media (max-width: 420px) {
   .header-container {
-    padding: 0 15px;
-    gap: 12px;
+    padding: 0 16px;
+    min-height: 68px;
+  }
+
+  .brand {
+    gap: 8px;
   }
 
   .brand-icon {
@@ -141,7 +181,15 @@
     font-size: 15px;
   }
 
-  .header-cta {
-    padding: 10px;
+  .brand small {
+    font-size: 9px;
+  }
+
+  .menu-toggle {
+    font-size: 25px;
+  }
+
+  .nav-links {
+    padding: 20px 18px 24px;
   }
 }
