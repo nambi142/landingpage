@@ -1,0 +1,147 @@
+.site-header {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  background: #081426;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-container {
+  max-width: 1240px;
+  min-height: 82px;
+  margin: auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  font-size: 38px;
+  color: #ffd343;
+}
+
+.brand strong {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+}
+
+.brand strong span {
+  color: #3295ff;
+}
+
+.brand small {
+  display: block;
+  margin-top: 2px;
+  color: #9eacc1;
+  font-size: 10px;
+  letter-spacing: 0.4px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: #c7d2e2;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: #39a2ff;
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 19px;
+  border-radius: 5px;
+  background: #147cf3;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.header-cta:hover {
+  background: #3295ff;
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .header-container {
+    min-height: 72px;
+    padding: 0 22px;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    padding: 24px;
+    background: #0c1b30;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .header-cta {
+    padding: 11px 13px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 420px) {
+  .header-container {
+    padding: 0 15px;
+    gap: 12px;
+  }
+
+  .brand-icon {
+    font-size: 32px;
+  }
+
+  .brand strong {
+    font-size: 15px;
+  }
+
+  .header-cta {
+    padding: 10px;
+  }
+}

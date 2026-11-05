@@ -1,0 +1,17 @@
+#root {
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #081426;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
