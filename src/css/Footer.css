@@ -1,0 +1,127 @@
+
+/* =====================================
+   PROFESSIONAL WORKSHOP FOOTER
+===================================== */
+
+.workshop-footer {
+  position: relative;
+  width: 100%;
+  padding: 25px 6%;
+
+  background: linear-gradient(
+    135deg,
+    #06152f,
+    #081d3d,
+    #040d1d
+  );
+
+  border-top: 1px solid rgba(65, 151, 255, 0.2);
+}
+
+.footer-container {
+  max-width: 1250px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* BRAND */
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.footer-brand strong {
+  color: #55b5ff;
+}
+
+.footer-brand-icon {
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 9px;
+
+  background: linear-gradient(
+    135deg,
+    #1685f8,
+    #0751b6
+  );
+
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+
+  box-shadow: 0 4px 15px rgba(22, 133, 248, 0.25);
+}
+
+/* DIVIDER */
+
+.footer-divider {
+  width: 1px;
+  height: 25px;
+
+  background: rgba(125, 174, 230, 0.25);
+}
+
+/* COPYRIGHT */
+
+.footer-copyright {
+  margin: 0;
+
+  color: #91a9c8;
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: right;
+}
+
+.footer-copyright span {
+  color: #55b5ff;
+  font-weight: 700;
+}
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 650px) {
+
+  .workshop-footer {
+    padding: 25px 18px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .footer-divider {
+    width: 45px;
+    height: 1px;
+  }
+
+  .footer-copyright {
+    font-size: 11px;
+    text-align: center;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workshop-footer * {
+    scroll-behavior: auto;
+  }
+}

@@ -193,3 +193,26 @@
     padding: 20px 18px 24px;
   }
 }
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Keep section headings visible below fixed header */
+#home,
+#benefits,
+#learning,
+#details,
+#registration {
+  scroll-margin-top: 90px;
+}

@@ -2,19 +2,55 @@
 import { FaPython } from "react-icons/fa";
 import { FiArrowUpRight, FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
-import "./Header.css";
+import "../css/Header.css";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
 
+  const handleNavigation = (event, targetId) => {
+    event.preventDefault();
+
+    const target = document.getElementById(targetId);
+
+    if (target) {
+      const headerHeight =
+        document.querySelector(".site-header")?.offsetHeight || 0;
+
+      const targetPosition =
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        headerHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+
+      window.history.replaceState(null, "", `#${targetId}`);
+    }
+
+    closeMenu();
+  };
+
+  const navItems = [
+    { label: "Home", id: "home" },
+    { label: "Why Learn", id: "benefits" },
+    { label: "What You'll Learn", id: "learning" },
+    { label: "Workshop Details", id: "details" },
+    { label: "FAQ", id: "faq" },
+  ];
+
   return (
     <header className="site-header">
       <div className="header-container">
 
-        {/* BRAND WITH PYTHON ICON */}
-        <a href="#home" className="brand" onClick={closeMenu}>
+        <a
+          href="#home"
+          className="brand"
+          onClick={(event) => handleNavigation(event, "home")}
+        >
           <FaPython className="brand-icon" />
 
           <span>
@@ -25,43 +61,36 @@ function Header() {
           </span>
         </a>
 
-        {/* NAVIGATION + REGISTER BUTTON */}
-        <nav className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
+        <nav
+          id="header-navigation"
+          className={`nav-links ${menuOpen ? "nav-open" : ""}`}
+        >
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(event) => handleNavigation(event, item.id)}
+            >
+              {item.label}
+            </a>
+          ))}
 
-          <a href="#home" onClick={closeMenu}>
-            Home
-          </a>
-
-          <a href="#benefits" onClick={closeMenu}>
-            Why This Workshop
-          </a>
-
-          <a href="#learning" onClick={closeMenu}>
-            What You'll Learn
-          </a>
-
-          <a href="#details" onClick={closeMenu}>
-            Workshop Details
-          </a>
-
-          {/* REGISTER BUTTON INSIDE DROPDOWN */}
           <a
             href="#registration"
             className="header-cta"
-            onClick={closeMenu}
+            onClick={(event) => handleNavigation(event, "registration")}
           >
             Register Now <FiArrowUpRight />
           </a>
-
         </nav>
 
-        {/* MOBILE / TABLET HAMBURGER */}
         <button
           className="menu-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Close navigation" : "Open navigation"}
           aria-expanded={menuOpen}
           aria-controls="header-navigation"
+          type="button"
         >
           {menuOpen ? <FiX /> : <FiMenu />}
         </button>
